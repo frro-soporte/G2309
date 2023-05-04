@@ -16,7 +16,7 @@ def apply(lista: Iterable[int], func: Callable[[int], bool]) -> Iterable[bool]:
     """Toma una lista y una función que toma un parámetro y devuelve una lista
     con la función aplicada a todos los elementos."""
     pass # Completar
-
+    return [func(x) for x in lista]
 
 # NO MODIFICAR - INICIO
 def esta_entre_valores(x: int, min_: float, max_: float) -> bool:

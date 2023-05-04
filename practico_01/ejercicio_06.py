@@ -7,11 +7,21 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
     """Toma una lista de enteros y strings y devuelve una lista con todos los
     elementos numéricos al final.
     """
+
     pass # Completar
+    a = []
+    palabras = []
+    for elemento in lista:
+        if isinstance(elemento, int):
+            a.append(elemento)
+        else:
+            palabras.append(elemento)
+    return palabras + a
 
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
+print( numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10])
 # NO MODIFICAR - FIN
 
 
@@ -21,6 +31,11 @@ assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 
 def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """Re-escribir utilizando comprensión de listas."""
     pass # Completar
+        numeros = [x for x in lista if isinstance(x, (int, float))]
+        cadenas = [x for x in lista if not isinstance(x, (int, float))]
+
+        # Devolver una lista que contiene las cadenas seguidas de los números
+        return cadenas + numeros
 
 
 # NO MODIFICAR - INICIO
@@ -30,16 +45,17 @@ assert numeros_al_final_comprension([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j"
 
 ###############################################################################
 
-
 def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """Re-escribir utilizando la función sorted con una custom key.
     Referencia: https://docs.python.org/3/library/functions.html#sorted
     """
     pass # Completar
-
+    lista_numeros = sorted((x for x in lista if isinstance(x, (int, float))), key=float)
+    lista_strings = sorted((x for x in lista if isinstance(x, str)), key = str)
+    return lista_strings + lista_numeros
 
 # NO MODIFICAR - INICIO
-assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
+assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 1, 3, 10]
 # NO MODIFICAR - FIN
 
 

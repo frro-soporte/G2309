@@ -22,7 +22,15 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
         - Usar el modificador nonlocal
     """
     pass # Completar
+    siguiente_par = initial if initial % 2 == 0 else initial + 1
 
+    def obtener_siguiente_par() -> int:
+        nonlocal siguiente_par
+        resultado = siguiente_par
+        siguiente_par += 2
+        return resultado
+
+    return obtener_siguiente_par
 
 # NO MODIFICAR - INICIO
 generador_pares = generar_pares_clousure(0)
@@ -46,6 +54,9 @@ def generar_pares_generator(initial: int = 0) -> Iterator[int]:
     Referencia: https://docs.python.org/3/howto/functional.html?highlight=generator#generators
     """
     pass # Completar
+    while True:
+        yield initial
+        initial += 2
 
 
 # NO MODIFICAR - INICIO
