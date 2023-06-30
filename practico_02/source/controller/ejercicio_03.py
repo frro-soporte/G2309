@@ -10,6 +10,13 @@ Los imports deben hacerse de forma tal que funcionen con el siguiente
 comando (estando parados dentro de la carpeta practico_02):
 $PATH$/practico_02> python -m source.controller.ejercicio_03
 """
+import source.controller.controller as controller
+import source.util as util
+import source.data.database as database
+import main as main
+
+import config.ci_cd.deploy_travis as deploy_travis
+import config.test_config as test_config
 
 # Completar
 
