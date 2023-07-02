@@ -12,6 +12,15 @@ class Articulo:
 
     # Completar
 
+    id_=0
+    def __init__(self,nombre: str=None):
+        self.nombre = nombre
+        Articulo.id_ += 1
+        self.id_ = Articulo.id_
+
+    @classmethod
+    def _last_id(cls):
+        return cls.id_
 
 # NO MODIFICAR - INICIO
 art1 = Articulo("manzana")
@@ -26,5 +35,5 @@ assert art3.nombre == "tv"
 assert art1.id_ == 1
 assert art2.id_ == 2
 assert art3.id_ == 3
-assert Articulo._last_id == 3
+assert Articulo._last_id() == 3
 # NO MODIFICAR - FIN

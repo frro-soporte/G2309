@@ -1,5 +1,5 @@
 """Deepcopy y Listas de Objetos"""
-
+import copy
 from dataclasses import dataclass
 from typing import List
 
@@ -20,14 +20,18 @@ def actualizar_precio(articulos: List[Articulo], porcentaje: float) -> List[Arti
     """Toma una lista de articulos y un porcentaje, al precio de cada articulo
     le suma un porcentaje. Devuelve una lista con los precios actualizados.
 
+
     Restricción: NO se debe modificar la clase ni los tests.
     Hint: Usar deepcopy (https://docs.python.org/3/library/copy.html#copy.deepcopy)
     """
-    
+    copia_articulos = copy.deepcopy(articulos)
+    for art in copia_articulos:
+        art.precio = art.precio * (1 + porcentaje_aumento / 100)
+    return copia_articulos
     # Completar
 
 
-# NO MODIFICAR - INICIO
+# NO MODIFICATION - INICIO
 nombres = ["sabana", "parlante", "computadora", "tasa", "botella", "celular"]
 precios = [10.25, 5.258, 350.159, 25.99, 18.759, 215.231]
 
