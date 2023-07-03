@@ -10,7 +10,7 @@ from practico_04.ejercicio_02 import *
 def buscar_persona(id_persona):
     """Implementar la funcion buscar_persona, que devuelve el registro de una 
     persona basado en su id. El return es una tupla que contiene sus campos: 
-    id, nombre, nacimiento, dni y altura. Si no encuentra ningun registro, 
+    id, nombre, nacimiento,,, dni y altura. Si no encuentra ningun registro,
     devuelve False."""
     pass # Completar
     conexion = sqlite3.Connection('mi_basedatos.db')
