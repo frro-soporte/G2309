@@ -4,7 +4,7 @@ import datetime
 
 from practico_04.ejercicio_02 import agregar_persona
 from practico_04.ejercicio_06 import reset_tabla
-from practico_04.ejercicio_07 import agregar_peso
+from practico_04.ejercicio_07 import *
 
 
 def listar_pesos(id_persona):
@@ -13,7 +13,7 @@ def listar_pesos(id_persona):
 
     Debe validar:
     - Que el ID de la persona ingresada existe (reutilizando las funciones ya 
-     mplementadas).
+     implementadas).
 
     Debe devolver:
     - Lista de (fecha, peso), donde fecha esta representado por el siguiente 
@@ -29,8 +29,28 @@ def listar_pesos(id_persona):
     ]
 
     - False en caso de no cumplir con alguna validacion.
-    """
+
     return []
+    """
+    conexion = sqlite3.Connection('mi_basedatos.db')
+    cursor = conexion.cursor()
+    existe = buscar_persona(id_persona)
+    if existe is not False:
+        cursor.execute('Select fecha, peso from PersonaPeso Where idpersona = ?', (id_persona,))
+        resultado = cursor.fetchall()
+        conexion.close()
+        lista=[]
+        for i in range (len(resultado)):
+            fechaA = resultado[i][0][:10]
+            pesoA = resultado[i][1]
+            tupla = (fechaA, pesoA)
+            lista.append(tupla)
+        return lista
+    else:
+        conexion.close()
+        return False
+
+
 
 
 # NO MODIFICAR - INICIO
