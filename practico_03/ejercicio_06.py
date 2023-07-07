@@ -14,9 +14,20 @@ class Article:
     def __init__(self, name: str) -> None:
         self.name = name
 
+
+
     # NO MODIFICAR - FIN
 
     # Completar
+
+    def __eq__(self, other:Article)-> bool:
+        return  self.name == other.name
+    def __str__(self)->str :
+        return self.name
+    def __hash__(self)->int:
+        return hash(self.name)
+    def __repr__(self)-> str:
+        return f"Article('{self.name})'"
 
 
 # NO MODIFICAR - INICIO
@@ -31,6 +42,7 @@ class ShoppingCart:
             self.articles = []
         else:
             self.articles = articles
+
 
     def add(self, article: Article) -> ShoppingCart:
         self.articles.append(article)
@@ -50,6 +62,14 @@ class ShoppingCart:
     # NO MODIFICAR - FIN
 
     # Completar
+    def __str__(self):
+        return str([str(i) for i in self.articles])
+    def __eq__(self, other:ShoppingCart)->bool:
+        return set(self.articles) == set(other.articles)
+    def __repr__(self):
+        return f"Shoppingcart ({[art for art in self.articles]})"
+    def __add__(self, other: ShoppingCart)-> ShoppingCart:
+        return  (ShoppingCart(self.articles + other.articles))
 
 
 # NO MODIFICAR - INICIO

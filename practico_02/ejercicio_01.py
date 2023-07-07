@@ -12,7 +12,7 @@ En este archivo se deben importar los módulos:
 Los imports deben hacerse de forma tal que funcionen con TODAS las formas
 posibles de invocación (estando parados en la carpeta practico_02):
 $PATH$/practico_02> python ejercicio_01.py
-$PATH$/practico_02> python -m ejercicio_01
+$PATH$/practico_02> python -m ejercicio_01...
 
 Referencia: https://docs.python.org/3/reference/import.html#the-import-system
 """
@@ -20,6 +20,7 @@ Referencia: https://docs.python.org/3/reference/import.html#the-import-system
 import main as main
 import source.util as util
 import source.controller.controller as controller
+
 
 
 # NO MODIFICAR - INICIO
