@@ -8,7 +8,7 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
     elementos numéricos al final.
     """
 
-    pass # Completar
+    
     a = []
     palabras = []
     for elemento in lista:
@@ -21,7 +21,6 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
-print( numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10])
 # NO MODIFICAR - FIN
 
 
@@ -30,12 +29,12 @@ print( numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 
 
 def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """Re-escribir utilizando comprensión de listas."""
-    pass # Completar
-        numeros = [x for x in lista if isinstance(x, (int, float))]
-        cadenas = [x for x in lista if not isinstance(x, (int, float))]
+    
+    numeros = [x for x in lista if isinstance(x, (int, float))]
+    cadenas = [x for x in lista if not isinstance(x, (int, float))]
 
         # Devolver una lista que contiene las cadenas seguidas de los números
-        return cadenas + numeros
+    return cadenas + numeros
 
 
 # NO MODIFICAR - INICIO
@@ -49,7 +48,7 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
     """Re-escribir utilizando la función sorted con una custom key.
     Referencia: https://docs.python.org/3/library/functions.html#sorted
     """
-    pass # Completar
+    
     lista_numeros = sorted((x for x in lista if isinstance(x, (int, float))), key=float)
     lista_strings = sorted((x for x in lista if isinstance(x, str)), key = str)
     return lista_strings + lista_numeros
