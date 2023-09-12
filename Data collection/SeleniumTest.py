@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import pandas as pd
 import time
+from datetime import datetime
 
 website = 'https://www.adamchoi.co.uk/teamgoals/detailed'
 
@@ -43,6 +44,16 @@ for i in range(len(partidos)):
 driver.quit()
 
 lista_partidos = list(set(lista_partidos))
+#Función para convertir una cadena de fecha en un objeto de fecha
+def convertir_a_fecha(cadena):
+    partes = cadena.split(" ")[0].split("-")
+    dia = int(partes[0])
+    mes = int(partes[1])
+    anio = int(partes[2])
+    return datetime(anio, mes, dia)
+
+#Ordena la lista utilizando la función convertir_a_fecha como clave
+lista_partidos = sorted(lista_partidos, key=convertir_a_fecha)
 #Pandas
 df = pd.DataFrame({'partidos':lista_partidos})
 print(df)
