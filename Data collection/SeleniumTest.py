@@ -44,7 +44,11 @@ for i in range(len(partidos)):
 driver.quit()
 
 lista_partidos = list(set(lista_partidos))
+#<<<<<<< HEAD
 #Función para convertir una cadena de fecha en un objeto de fecha
+#=======
+# Función para convertir una cadena de fecha en un objeto de fecha
+#>>>>>>> 9f541b3756097b9d9955e84548d9c1a4d5c2af57
 def convertir_a_fecha(cadena):
     partes = cadena.split(" ")[0].split("-")
     dia = int(partes[0])
@@ -52,7 +56,11 @@ def convertir_a_fecha(cadena):
     anio = int(partes[2])
     return datetime(anio, mes, dia)
 
+#<<<<<<< HEAD
 #Ordena la lista utilizando la función convertir_a_fecha como clave
+#=======
+# Ordena la lista utilizando la función convertir_a_fecha como clave
+#>>>>>>> 9f541b3756097b9d9955e84548d9c1a4d5c2af57
 lista_partidos = sorted(lista_partidos, key=convertir_a_fecha)
 #Pandas
 df = pd.DataFrame({'partidos':lista_partidos})

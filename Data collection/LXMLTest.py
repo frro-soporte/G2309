@@ -14,11 +14,7 @@ if response.status_code == 200:
 
     # Utilizar XPath para encontrar elementos en la página
     elemento = pagina_web.xpath('/html/body/div[3]/div[2]/div[1]/div[1]/div[2]/section/div/div/div/div[1]/div/div[1]/div/div[1]/div[2]/div[2]')
-    # Utilizar XPath para encontrar el botón
-    boton = pagina_web.xpath('//*[@id="header_dolar"]/div/div/div/div[1]/button')[0]
 
-    # Hacer clic en el botón
-    boton.click()
     if elemento:
         # Imprimir el texto del elemento encontrado
         texto_elemento = elemento[0].text_content()
