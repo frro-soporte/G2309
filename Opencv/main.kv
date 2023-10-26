@@ -1,0 +1,83 @@
+<LoginScreen23>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            size_hint: None, None
+            size: self.minimum_size  # Ajusta el tamaño del BoxLayout al tamaño mínimo necesario
+            pos_hint: {'center_x': 0.5}  # Centra el BoxLayout horizontalmente en el espacio disponible
+
+            Button:
+                text: 'Login'
+                size_hint: None, None
+                size: 150, 50
+                background_color: 0, 0.5, 0.5, 1  # Cambia el color de fondo del botón
+                font_size: 20  # Cambia el tamaño de la fuente del botón
+                on_press: root.capture_validate_image(self)
+
+            Button:
+                text: 'Nuevo Usuario'
+                size_hint: None, None
+                size: 150, 50
+                background_color: 0, 0.5, 0.5, 1
+                font_size: 20
+                on_press: root.create_user(self)
+
+
+ScreenManaager:
+    IndexScreen:
+        name: "index"
+    # CameraScreen:
+    #     name: "camera"  # Ya no es necesario agregar CameraScreen aquí
+    FileScreen:
+        name: "files"
+
+<IndexScreeen>:
+    BoxLayout:
+        orientation: 'vertical'
+        
+        Label:
+            text: "Index"
+            
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            padding: [20, 20, 20, 20]
+
+            Button:
+                text: "Files"
+                size_hint: (None, None)
+                size: (100, 50)
+                on_press: root.go_to_files()
+            
+            Button:
+                text: "Camera"
+                size_hint: (None, None)
+                size: (100, 50)
+                on_press: root.go_to_camera()
+                
+<FileScreenn>:
+    BoxLayout:
+        orientation: 'vertical'
+        
+        # Agregar el FileChooserListView
+        FileChooserListView:
+            id: file_chooser
+            path: '.'
+            filters: ['*.jpg', '*.png', '*.mp4']
+        
+        # Widget para mostrar fotos o videos
+        BoxLayout:
+            orientation: 'vertical'
+            id: media_widget
+        
+        # Botón para regresar a la pantalla de índice
+        Button:
+            text: "<< Back"
+            size_hint: (None, None)
+            size: (100, 50)
+            on_press: root.go_to_index()
+
+

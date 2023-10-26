@@ -1,0 +1,61 @@
+<UI>:
+    orientation: "vertical"
+
+<Camera>:
+    size_hint: None, None
+    size: 640, 480
+
+<UI>:
+    tabbed_panel: tabbed_panel
+    tab_register: tab_register
+    register_content: register_content
+    name_input: name_input
+    register_button: register_button
+    camera: camera
+    tab_gallery: tab_gallery
+    gallery_content: gallery_content
+    gallery_images: gallery_images
+
+    TabbedPanel:
+        id: tabbed_panel
+        do_default_tab: False
+
+        TabbedPanelHeader:
+            id: tab_register
+            text: "Registro"
+
+            BoxLayout:
+                id: register_content
+                orientation: "vertical"
+
+                TextInput:
+                    id: name_input
+                    hint_text: "Nombre"
+
+                Button:
+                    id: register_button
+                    text: "Registrarse"
+
+                Camera:
+                    id: camera
+                    play: True
+
+        TabbedPanelHeader:
+            id: tab_gallery
+            text: "Galería"
+
+            BoxLayout:
+                id: gallery_content
+                orientation: "vertical"
+
+                Label:
+                    text: "Fotos y Videos Guardados"
+
+                ScrollView:
+                    size_hint: (1, None)
+                    size: (Window.width, Window.height - 100)
+                    do_scroll_x: False
+
+                    GridLayout:
+                        id: gallery_images
+                        cols: 3
