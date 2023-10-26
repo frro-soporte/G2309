@@ -5,7 +5,7 @@ base_url = "https://pokeapi.co/api/v2/"
 
 # Nombre del Pokémon que queremos consultar
 pokemon_nombre = "pikachu"
-pokemon_numero = ''
+pokemon_numero = '5'
 
 # Construimos la URL completa para obtener información sobre el Pokémon
 url = f"{base_url}pokemon/{pokemon_nombre}"

@@ -17,10 +17,11 @@ driver.get(website)
 
 boton_all_matches = driver.find_element(By.XPATH, '//*[@id="page-wrapper"]/div/home-away-selector/div/div/div/div/label[2]')
 boton_all_matches.click()
+time.sleep(5)
 lista_paises = Select(driver.find_element(By.ID, 'country'))
 lista_paises.select_by_visible_text('Argentina')
 
-time.sleep(2)
+time.sleep(5)
 partidos = driver.find_elements(By.TAG_NAME, 'tr')
 
 """
